@@ -51,7 +51,7 @@
                             <div class="margin-top-55"></div>
 
                             <!-- Range Slider -->
-                            <input class="range-slider" type="text" value="" name="slider" data-slider-currency="$" data-slider-min="1500" data-slider-max="15000" data-slider-step="100" data-slider-value="[1500,15000]"/>
+                            <input class="range-slider" type="text" value="" name="slider" data-slider-currency="$" data-slider-min="100" data-slider-max="15000" data-slider-step="100" data-slider-value="[100,15000]"/>
                         </div>
                     </div>
 
