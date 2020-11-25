@@ -1,20 +1,20 @@
 [{
     "external_id": 1,
-    "name": "Product 1",
+    "name": "Product 7",
     "price": 101.01,
     "user_id": 1,
     "availability": 1
 },
     {
         "external_id": 2,
-        "name": "Product 2",
+        "name": "Product 8",
         "price": 199.01,
         "user_id": 2,
         "availability": 0
     },
     {
         "external_id": 3,
-        "name": "Product 3",
+        "name": "Product 9",
         "price": 999.01,
         "user_id": 1,
         "availability": 1

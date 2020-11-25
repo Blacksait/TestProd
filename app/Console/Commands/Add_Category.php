@@ -2,8 +2,13 @@
 
 namespace App\Console\Commands;
 
+use App\Product;
+use App\Category;
+
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
+
 
 class Add_Category extends Command
 {
@@ -43,25 +48,59 @@ class Add_Category extends Command
 
         $categories = file_get_contents('products.json');//находим json файл продукта
         $data_products = json_decode($categories,true);//делаем из string массив
-
-        //Категории
-        foreach ($data_categories as $el){
-            $name = $el['name'];
-            $external_id = $el['external_id'];
-
-            DB::statement("INSERT INTO categories(name,label,external_id,parent_id,user_id) values('$name','$name',$external_id,1,1)");
-        }
+        $default_value = 1;
 
         //Продукты
         foreach ($data_products as $el_product){
-            $name = $el_product['name'];
-            $external_id = $el_product['external_id'];
-            $price = $el_product['price'];
-            $availability = $el_product['availability'];
+            $validator = Validator::make($el_product,[//валидация
+                'name' => 'required|max:20|unique:products',
+                'price' => 'required|max:20',
+                'availability' => 'required|max:2',
+                'user_id' => 'required|max:2',
+                'external_id' => 'required|max:2',
 
-            DB::statement("INSERT INTO products(external_id,name,description,price,user_id,availability) values('$external_id','$name','lorem',$price,1,'$availability')");
+            ]);
+
+            if ($validator->fails()) {//выводим ошибку
+                $this->error('Product not created');//выводим ошибки валидации
+                foreach ($validator->errors()->all() as $error){
+                    $this->comment($error);
+                }
+                die;
+            }
+
+            $product = new Product();
+            $product->name = $el_product['name'];
+            $product->external_id = $el_product['external_id'];
+            $product->price = $el_product['price'];
+            $product->availability = $el_product['availability'];
+            $product->description = $default_value;
+            $product->user_id = $default_value;
+            $product->save();
         }
 
+        //Категории
+        foreach ($data_categories as $el){
+            $validator = Validator::make($el,[//валидация
+                'name' => 'required|max:20|unique:categories',
+                'external_id' => 'required|max:20',
+            ]);
 
+            if ($validator->fails()) {//выводим ошибку
+                $this->error('Category not created');//выводим ошибки валидации
+                foreach ($validator->errors()->all() as $error){
+                    $this->comment($error);
+                }
+                die;
+            }
+
+            $category = new Category();
+            $category->name = $el['name'];
+            $category->label = $el['name'];
+            $category->external_id = $el['external_id'];
+            $category->parent_id = $default_value;
+            $category->user_id = $default_value;
+            $category->save();
+        }
     }
 }

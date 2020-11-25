@@ -101,6 +101,7 @@
                                 <div class="job-listing-footer" style="text-align: center">
                                     <ul>
                                         <li><i class="icon-material-outline-account-balance-wallet"></i>${{$el->price}}</li>
+                                        <li><i class="icon-material-outline-shopping-cart"></i>{{$el->quantity}}</li>
                                         <li><i class="icon-material-outline-access-time"></i>
                                             <?php
                                             $update_at_day =  e($el->updated_at);

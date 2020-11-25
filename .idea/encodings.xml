@@ -9,7 +9,6 @@
     <file url="file://$PROJECT_DIR$/app/Category.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/Console/Commands/Add_Category.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/Console/Commands/categories.json" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/Console/Commands/categories.json" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/Console/Kernel.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/Console/categories.json" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/Http/Controllers/ArticlesController.php" charset="UTF-8" />
@@ -61,6 +60,7 @@
     <file url="file://$PROJECT_DIR$/database/migrations/2020_11_16_235226_add_dedault_to_availability_table.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/database/migrations/2020_11_17_140129_add_time_to_category_table.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/database/migrations/2020_11_17_141151_add_new_field_to_categories_table.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/database/migrations/2020_11_25_224846_add_quantity_to_products_tabel.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/laravel_db.sql" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/prod/app/controllers/Basket.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/prod/app/controllers/Categories.php" charset="UTF-8" />
@@ -101,10 +101,6 @@
     <file url="file://$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/resources/views/auth/register.blade.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/resources/views/blocks/messages.blade.php" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/resources/views/category/categories.json" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/resources/views/category/categories.json" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/resources/views/category/categories.json" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/resources/views/category/categories.json" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/resources/views/category/categories.json" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/resources/views/category/category.blade.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/resources/views/category/create.blade.php" charset="UTF-8" />

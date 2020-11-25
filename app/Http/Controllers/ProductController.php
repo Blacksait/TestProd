@@ -28,14 +28,14 @@ class ProductController extends Controller
         }
 
         if ($request->filled('more_types')) {//если наш запрос имеет more_types
-            if ($request->more_types == 'Newest'){//начинаем сортировку
-                $productQuery->orderBy('updated_at','desc');
-            }elseif ($request->more_types == 'Oldest'){
-                $productQuery->orderBy('updated_at','asc');
-            }elseif ($request->more_types == 'Dearest'){
-                $productQuery->orderBy('price','desc');
-            }elseif ($request->more_types == 'Cheapest'){
-                $productQuery->orderBy('price','asc');
+            if ($request->more_types == 'Newest') {//начинаем сортировку
+                $productQuery->orderBy('updated_at', 'desc');
+            } elseif ($request->more_types == 'Oldest') {
+                $productQuery->orderBy('updated_at', 'asc');
+            } elseif ($request->more_types == 'Dearest') {
+                $productQuery->orderBy('price', 'desc');
+            } elseif ($request->more_types == 'Cheapest') {
+                $productQuery->orderBy('price', 'asc');
             }
         }
 
@@ -46,11 +46,12 @@ class ProductController extends Controller
             $productQuery->where('price', '>=', $min)->where('price', '<=', $max);
         }
 
-        if($request->has('category_types')) {
+        if ($request->has('category_types')) {
             $productQuery->whereHas('categories', function ($category) {//обращение к дочерней таблице
                 $category->whereIn('label', request('category_types'));//выбор значений и вывод поста,связанный отношением, из дочерней таблицы
             });
         }
+
 
         $product = $productQuery->paginate(50);//пагинация
 

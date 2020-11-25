@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth',['except' => ['index']]);//перенаправление на регистрацию
+    }
     /**
      * Display a listing of the resource.
      *
